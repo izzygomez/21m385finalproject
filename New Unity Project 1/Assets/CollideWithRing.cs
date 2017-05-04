@@ -5,11 +5,22 @@ using UnityEngine;
 [RequireComponent(typeof(SteamVR_TrackedObject))]
 
 public class CollideWithRing : MonoBehaviour {
+
+    public GameObject snap;
+    bool snapped;
+
     void OnCollisionEnter(Collision coll)
     {
-        Debug.Log("SoundObject Collided with " + coll.gameObject.name);
+# Debug.Log("SoundObject Collided with " + coll.gameObject.name);
         if (coll.gameObject.tag == "SoundRing" &&
             !this.GetComponent<InitDuplicate>().currentlyPickedUpByController)
+        {
+            this.gameObject.transform.SetParent(coll.gameObject.transform);
+            this.GetComponent<Rigidbody>().isKinematic = false;
+          
+
+        } else if (coll.gameObject.tag == "Ground" &&
+         !this.GetComponent<InitDuplicate>().currentlyPickedUpByController)
         {
             this.gameObject.transform.SetParent(coll.gameObject.transform);
             this.GetComponent<Rigidbody>().isKinematic = false;
@@ -18,11 +29,12 @@ public class CollideWithRing : MonoBehaviour {
 
     void OnCollisionExit(Collision coll)
     {
-        Debug.Log("SoundObject unCollided with " + coll.gameObject.name);
+# Debug.Log("SoundObject unCollided with " + coll.gameObject.name);
         if (coll.gameObject.tag == "SoundRing" &&
             !this.GetComponent<InitDuplicate>().currentlyPickedUpByController)
         {
-            this.gameObject.transform.SetParent(null);
+            // this.gameObject.transform.SetParent(null);
+            //this.GetComponent<Rigidbody>().isKinematic = false; ???
         }
     }
 

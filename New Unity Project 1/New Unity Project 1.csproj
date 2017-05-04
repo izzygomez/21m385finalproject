@@ -120,10 +120,39 @@
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_TrackedObject.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_UpdatePoses.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_Utils.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\Boundary.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\ButtonLightGuages.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\Buttons.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\CabnetLight.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\Crank.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\DialGauges.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\DoorHandle.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\LeverGauge.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\PowerLightGauge.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\SliderGauge.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\SpeechInteractions.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\TankBelt.cs" />
+    <Compile Include="Assets\VRBasics\Examples\Scripts\TossedAndRetrieved.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_Connector.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_Controller.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_Gazable.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_Gaze.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_GrabManager.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_Grabbable.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_Hinge.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_IKJointGlue.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_Lever.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_Rail.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_Slider.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_Speech.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_TouchAndPushManager.cs" />
+    <Compile Include="Assets\VRBasics\Scripts\VRBasics_Touchable.cs" />
     <Compile Include="Assets\play_pause.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\glow.shader" />
+    <None Include="Assets\Materials\transparent.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_AlphaOut.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_Blit.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_BlitFlip.shader" />
@@ -134,6 +163,8 @@
     <None Include="Assets\SteamVR\Resources\SteamVR_Overlay.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_SphericalProjection.shader" />
     <None Include="Assets\SteamVR\readme.txt" />
+    <None Include="Assets\VRBasics\Shaders\UIOverlay.shader" />
+    <None Include="Assets\VRBasics\StreamingAssets\MyGrammar.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
