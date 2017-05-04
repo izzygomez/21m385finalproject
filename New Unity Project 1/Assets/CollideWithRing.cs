@@ -11,7 +11,7 @@ public class CollideWithRing : MonoBehaviour {
 
     void OnCollisionEnter(Collision coll)
     {
-# Debug.Log("SoundObject Collided with " + coll.gameObject.name);
+//Debug.Log("SoundObject Collided with " + coll.gameObject.name);
         if (coll.gameObject.tag == "SoundRing" &&
             !this.GetComponent<InitDuplicate>().currentlyPickedUpByController)
         {
@@ -29,7 +29,7 @@ public class CollideWithRing : MonoBehaviour {
 
     void OnCollisionExit(Collision coll)
     {
-# Debug.Log("SoundObject unCollided with " + coll.gameObject.name);
+//Debug.Log("SoundObject unCollided with " + coll.gameObject.name);
         if (coll.gameObject.tag == "SoundRing" &&
             !this.GetComponent<InitDuplicate>().currentlyPickedUpByController)
         {
