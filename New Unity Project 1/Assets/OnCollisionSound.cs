@@ -6,30 +6,46 @@ public class OnCollisionSound : MonoBehaviour {
     public AudioClip sound;
     public float startTime;
     private AudioSource source;
-    private float velToVol = 0.2F;
     private float duration;
     public bool collided;
+    private float default_volume;
 
     void Awake()
     {
         source = GetComponent<AudioSource>();
         sound = source.clip;
         duration = sound.length;
-        Debug.Log(duration);
+        default_volume = 1;
+    }
+
+    public float getDuration ()
+    {
+        return duration;
+    }
+
+    public void setDuration (float d)
+    {
+        duration = d;
+    }
+
+    public float getVolume ()
+    {
+        return default_volume;
+    }
+
+    public void setVolume (float v)
+    {
+        // make sure to bound volume between 0 and 1
+        default_volume = Mathf.Min(1, Mathf.Max(v, 0));
     }
 
     void OnTriggerEnter(Collider coll)
     {
-        source.pitch = 1F;
-        
         if (coll.gameObject.tag == "NowBar") {
-            source.volume = 1;
             collided = true;
-            startTime = Time.time;
             source.Play();
-
+            startTime = Time.time;
             GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(.794f, .794f, .794f, 1.0f));
-            //StartCoroutine(playSound());
         }
     }
  
@@ -44,25 +60,34 @@ public class OnCollisionSound : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
     }
-    
-    IEnumerator playSound()  
-    {
-        source.Play();
-        // TODO figure out if we need this 
-        yield return new WaitForSeconds(2);
-        // source.Stop();
-
-    }
 
     // Update is called once per frame
     void Update () {
         if (Time.time - startTime >= duration && collided)
         {
             collided = false;
+            source.Stop();
+            source.volume = default_volume;
         }
-        if (Time.time - startTime >= duration * 0.7f && collided)
+
+        if (duration > 4)
         {
-            source.volume = (duration - (Time.time - startTime)) * 0.3f;
+            if (Time.time - startTime >= duration * 0.7f && collided)
+            {
+                Debug.Log(Time.time - startTime);
+                Debug.Log(duration);
+                source.volume = (duration - (Time.time - startTime)) * 0.3f;
+            }
         }
+        if (duration <= 4)
+        {
+            if (Time.time - startTime >= duration * 0.6f && collided)
+            {
+                Debug.Log(Time.time - startTime);
+                Debug.Log(duration);
+                source.volume = (duration - (Time.time - startTime)) * 0.8f;
+            }
+        }
+        
     }
 }

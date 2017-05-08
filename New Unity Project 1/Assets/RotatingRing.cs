@@ -5,8 +5,7 @@ using UnityEngine;
 public class RotatingRing : MonoBehaviour {
 
     bool spin = false;
-    public GameObject snap;
-    bool snapped = false; //dictionary of snaps? need one per...or put it into the cube itself??
+    bool snapped = false;
 
     public AudioClip clarity_cut;
 
@@ -27,13 +26,15 @@ public class RotatingRing : MonoBehaviour {
         }
       }
 
-    void toggle() {
-        spin = !spin;
-        if (spin) {
-            source.Play();
-        } else {
-            source.Pause();
-        }
+    void toggleOn() {
+        spin = true;
+        source.Play();
+    }
+
+    void toggleOff()
+    {
+        spin = false;
+        source.Pause();
     }
 
     void OnCollisionEnter(Collision coll)
@@ -43,7 +44,6 @@ public class RotatingRing : MonoBehaviour {
         Transform minChild=this.transform;
 
         if (coll.gameObject.tag == "SoundObject" && !snapped) {
-            //coll.gameObject.transform.position = new Vector3(snap.transform.position.x,snap.transform.position.y+.25f, snap.transform.position.z);
             foreach (Transform child in transform) {
                 if (child.tag == "Snap") {
                     float distance = Vector3.Distance(child.position, coll.gameObject.transform.position);
@@ -54,7 +54,6 @@ public class RotatingRing : MonoBehaviour {
                 }
             }
             coll.gameObject.transform.position = new Vector3(minChild.position.x, minChild.position.y + .05f, minChild.position.z);
-            //Debug.Log("Current rotation: " + coll.gameObject.transform.rotation.ToString());
             coll.gameObject.transform.rotation =  minChild.rotation;
             snapped = true;
             StartCoroutine(debounce());

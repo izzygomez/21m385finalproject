@@ -87,6 +87,8 @@
     <Compile Include="Assets\OnCollisionSound.cs" />
     <Compile Include="Assets\PickupParent.cs" />
     <Compile Include="Assets\RotatingRing.cs" />
+    <Compile Include="Assets\RotatingRingNoAudio.cs" />
+    <Compile Include="Assets\SoundDuration.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />
@@ -120,6 +122,7 @@
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_TrackedObject.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_UpdatePoses.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_Utils.cs" />
+    <Compile Include="Assets\ToggleTrigger.cs" />
     <Compile Include="Assets\VRBasics\Examples\Scripts\Boundary.cs" />
     <Compile Include="Assets\VRBasics\Examples\Scripts\ButtonLightGuages.cs" />
     <Compile Include="Assets\VRBasics\Examples\Scripts\Buttons.cs" />
