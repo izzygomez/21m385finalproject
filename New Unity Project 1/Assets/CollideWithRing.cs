@@ -32,9 +32,7 @@ public class CollideWithRing : MonoBehaviour {
     void OnCollisionExit(Collision coll)
     {
         startTime = Time.time; // HACK to make this cube not get destroyed when letting it go after 10s
-        //Debug.Log("SoundObject unCollided with " + coll.gameObject.name);
-        if (coll.gameObject.tag == "SoundRing" &&
-            !this.GetComponent<InitDuplicate>().currentlyPickedUpByController)
+        if (coll.gameObject.tag == "SoundRing" && !this.GetComponent<InitDuplicate>().currentlyPickedUpByController)
         {
             // this.gameObject.transform.SetParent(null);
             //this.GetComponent<Rigidbody>().isKinematic = false; ???
@@ -48,12 +46,13 @@ public class CollideWithRing : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        // If the cube has been on the groun for more than 5 seconds, let it fall into the abyss >:)
         if (hasParent && Time.time - startTime >= 5.0 && this.gameObject.transform.parent.gameObject.tag=="Ground")
         {
             this.GetComponent<BoxCollider>().enabled = false;
             if (Time.time - startTime >= 12.0)
             {
-                Debug.Log("rip");
+                // ...and then kill it to save our precious CPU 
                 Destroy(gameObject);
             }
         } 

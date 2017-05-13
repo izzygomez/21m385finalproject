@@ -24,17 +24,17 @@ public class PickupParent : MonoBehaviour {
         // Grabbing an object
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger) && coll.gameObject.tag == "SoundObject" && !this.holdingObject)
         {
-            Debug.Log("grabbing");
+            // Debug.Log("grabbing");
             // Logic so that we only hold one object at a time
             this.holdingObject = true;
             coll.gameObject.GetComponent<InitDuplicate>().currentlyPickedUpByController = true;
 
-            // Debug.Log("You have collided with " + coll.name + " while holding down touch.");
             // Check if duplication should happen
-            if (!coll.gameObject.GetComponent<InitDuplicate>().pickedUp)
+            if (!coll.gameObject.GetComponent<InitDuplicate>().hasBeenPickedUp)
             {
                 coll.gameObject.GetComponent<InitDuplicate>().Duplicate();
             }
+
             coll.attachedRigidbody.isKinematic = true;
             coll.gameObject.transform.SetParent(this.gameObject.transform);
         }
@@ -42,7 +42,7 @@ public class PickupParent : MonoBehaviour {
         // Letting go of an object on TriggerUp
         if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger) && coll.gameObject.tag == "SoundObject" && this.holdingObject)
         {
-            Debug.Log("dropping "+this.holdingObject);
+            // Debug.Log("dropping "+this.holdingObject);
             this.holdingObject = false;
             coll.gameObject.GetComponent<InitDuplicate>().currentlyPickedUpByController = false;
             // Debug.Log("You have released Touch while colliding with " + coll.name);
@@ -50,13 +50,14 @@ public class PickupParent : MonoBehaviour {
             coll.attachedRigidbody.isKinematic = false;
         }
 
-        // Changing duration of object
+        // Changing volume & duration of object
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad) && coll.gameObject.tag == "SoundObject" && this.holdingObject) {
             // Debug.Log("Pressed down the touchpad. x = " + device.GetAxis().x + ", y = " + device.GetAxis().y);
             float x = device.GetAxis().x;
             float y = device.GetAxis().y;
 
             // Check if volume is to be adjusted
+            /** Do we still want to do this? How are we going to show volume control on the UI?
             if (y > 0.7)
             {
                 coll.gameObject.GetComponent<SoundDuration>().incrementVolume();
@@ -66,7 +67,7 @@ public class PickupParent : MonoBehaviour {
             {
                 coll.gameObject.GetComponent<SoundDuration>().decrementVolume();
                 return;
-            }
+            }**/
 
             // Else, check if duration is to be adjusted
             if (x < 0)

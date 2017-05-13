@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotatingRing : MonoBehaviour {
 
-    bool spin = false;
+    public bool spinning = false;
     bool snapped = false;
 
     public AudioClip clarity_cut;
@@ -21,19 +21,19 @@ public class RotatingRing : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (spin) {
+        if (spinning) {
             transform.Rotate(new Vector3(0, 0, 96) * Time.deltaTime);
         }
       }
 
     void toggleOn() {
-        spin = true;
+        spinning = true;
         source.Play();
     }
 
     void toggleOff()
     {
-        spin = false;
+        spinning = false;
         source.Pause();
     }
 

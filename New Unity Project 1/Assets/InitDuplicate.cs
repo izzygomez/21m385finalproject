@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class InitDuplicate : MonoBehaviour {
 
-    public bool pickedUp = false;
+    public bool hasBeenPickedUp = false;
     public bool currentlyPickedUpByController = false;
     private Vector3 location;
     
@@ -17,9 +17,8 @@ public class InitDuplicate : MonoBehaviour {
 
     public void Duplicate()
     {
-        // Debug.Log("Duplicating Cube bc it's been picked up for the first time.");
         Instantiate(this, location, transform.rotation);
-        this.pickedUp = true;
+        this.hasBeenPickedUp = true;
         // now that this cube has been picked up for the first time, turn off all constraints
         this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
