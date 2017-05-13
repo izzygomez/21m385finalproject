@@ -54,12 +54,11 @@ public class PickupParent : MonoBehaviour {
 
         // Changing volume & duration of object
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad) && coll.gameObject.tag == "SoundObject" && this.holdingObject) {
-            // Debug.Log("Pressed down the touchpad. x = " + device.GetAxis().x + ", y = " + device.GetAxis().y);
+            Debug.Log("Pressed down the touchpad. x = " + device.GetAxis().x + ", y = " + device.GetAxis().y);
             float x = device.GetAxis().x;
             float y = device.GetAxis().y;
 
             // Check if volume is to be adjusted
-            /** Do we still want to do this? How are we going to show volume control on the UI?
             if (y > 0.7)
             {
                 coll.gameObject.GetComponent<SoundDuration>().incrementVolume();
@@ -69,7 +68,7 @@ public class PickupParent : MonoBehaviour {
             {
                 coll.gameObject.GetComponent<SoundDuration>().decrementVolume();
                 return;
-            }**/
+            }
 
             // Else, check if duration is to be adjusted
             if (x < 0)

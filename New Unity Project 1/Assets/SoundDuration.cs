@@ -35,6 +35,7 @@ public class SoundDuration : MonoBehaviour {
     private Text duration_text;
     private Image note_image;
     public OnCollisionSound script;
+    public float hue;
 
 	// Use this for initialization
 	void Start () {
@@ -48,7 +49,6 @@ public class SoundDuration : MonoBehaviour {
     public void incrementDuration ()
     {
         duration = Mathf.Min(MAX_DURATION*d_step_size, duration + d_step_size);
-        // Debug.Log((int)(duration / d_step_size));
         note_image.GetComponent<Image>().sprite = getNewSprite((int) (duration / d_step_size));
 
         script.setDuration(duration);
@@ -57,7 +57,6 @@ public class SoundDuration : MonoBehaviour {
     public void decrementDuration()
     {
         duration = Mathf.Max(MIN_DURATION*d_step_size, duration - d_step_size);
-        // Debug.Log((int)(duration / d_step_size));
         note_image.GetComponent<Image>().sprite = getNewSprite((int)(duration / d_step_size));
 
         script.setDuration(duration);
@@ -65,17 +64,24 @@ public class SoundDuration : MonoBehaviour {
 
     public void incrementVolume ()
     {
+
         volume = Mathf.Min(MAX_VOLUME, volume + v_step_size);
-        // TODO delete this bc we're using images now
-        // duration_text.text = "Duration: " + Mathf.Round(duration / 0.46875f) + "\nVolume: " + Mathf.Round(volume * 100) / 100;
+        // TODO change alpha
+    
+        Color new_color = Color.HSVToRGB(hue,volume*0.8f+.2f,1f);
+  
+    
+
+        this.gameObject.GetComponent<Renderer>().material.SetColor("_Color",new_color);
         script.setVolume(volume);
     }
 
     public void decrementVolume ()
     {
+
         volume = Mathf.Max(MIN_VOLUME, volume - v_step_size);
-        // TODO delete this bc we're using images now
-        // duration_text.text = "Duration: " + Mathf.Round(duration / 0.46875f) + "\nVolume: " + Mathf.Round(volume * 100) / 100;
+        Color new_color = Color.HSVToRGB(hue, volume * 0.8f + .2f, 1f);
+        this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", new_color);
         script.setVolume(volume);
     }
 

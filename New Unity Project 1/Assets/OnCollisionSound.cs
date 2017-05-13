@@ -66,7 +66,6 @@ public class OnCollisionSound : MonoBehaviour {
         source.Play();
         ps.SendMessage("Play");
         startTime = Time.time;
-        GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(.794f, .794f, .794f, 1.0f));
     }
  
 
@@ -81,17 +80,16 @@ public class OnCollisionSound : MonoBehaviour {
             ps.SendMessage("Stop");
             collided = false;
             source.Stop();
-            GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(.5f, .5f, .5f, .5f));
+      
             source.volume = default_volume;
         }
-        // Do we actually need this?
         /**
         if (duration > 4)
         {
             if (Time.time - startTime >= duration * 0.7f && collided)
             {
-                Debug.Log(Time.time - startTime);
-                Debug.Log(duration);
+                // Debug.Log(Time.time - startTime);
+                // Debug.Log(duration);
                 source.volume = (duration - (Time.time - startTime)) * 0.3f;
             }
         }
@@ -99,8 +97,8 @@ public class OnCollisionSound : MonoBehaviour {
         {
             if (Time.time - startTime >= duration * 0.6f && collided)
             {
-                Debug.Log(Time.time - startTime);
-                Debug.Log(duration);
+                // Debug.Log(Time.time - startTime);
+                // Debug.Log(duration);
                 source.volume = (duration - (Time.time - startTime)) * 0.8f;
             }
         }**/
