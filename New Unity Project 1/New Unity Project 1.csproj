@@ -88,7 +88,10 @@
     <Compile Include="Assets\PickupParent.cs" />
     <Compile Include="Assets\RotatingRing.cs" />
     <Compile Include="Assets\RotatingRingNoAudio.cs" />
+    <Compile Include="Assets\SkySphere_V1\Examples\Gui.cs" />
+    <Compile Include="Assets\SkySphere_V1\Examples\MouseLook.cs" />
     <Compile Include="Assets\SoundDuration.cs" />
+    <Compile Include="Assets\StartParticles.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />
@@ -122,6 +125,7 @@
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_TrackedObject.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_UpdatePoses.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_Utils.cs" />
+    <Compile Include="Assets\SummerSwitch.cs" />
     <Compile Include="Assets\ToggleTrigger.cs" />
     <Compile Include="Assets\VRBasics\Examples\Scripts\Boundary.cs" />
     <Compile Include="Assets\VRBasics\Examples\Scripts\ButtonLightGuages.cs" />
@@ -152,10 +156,12 @@
     <Compile Include="Assets\VRBasics\Scripts\VRBasics_TouchAndPushManager.cs" />
     <Compile Include="Assets\VRBasics\Scripts\VRBasics_Touchable.cs" />
     <Compile Include="Assets\play_pause.cs" />
+    <Compile Include="Assets\switchscene.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\glow.shader" />
     <None Include="Assets\Materials\transparent.shader" />
+    <None Include="Assets\SkySphere_V1\Documentation\How to use.txt" />
     <None Include="Assets\SteamVR\Resources\SteamVR_AlphaOut.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_Blit.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_BlitFlip.shader" />

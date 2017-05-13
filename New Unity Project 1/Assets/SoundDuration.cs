@@ -7,9 +7,9 @@ public class SoundDuration : MonoBehaviour {
 
     public float duration;
     public float volume;
-    private float d_step_size = 0.25f;
+    private float d_step_size = 0.46875f;
     private float v_step_size = 0.05f;
-    private int MAX_DURATION = 10;
+    private int MAX_DURATION = 16;
     private int MIN_DURATION = 0;
     private int MAX_VOLUME = 1;
     private int MIN_VOLUME = 0;
@@ -22,35 +22,39 @@ public class SoundDuration : MonoBehaviour {
         duration_text = GetComponentInChildren<Canvas>().GetComponentInChildren<Text>();
         duration = script.getDuration();
         volume = script.getVolume();
-        duration_text.text = "Duration: " + Mathf.Round(script.getDuration() * 10) / 10
-                                + "\nVolume: " + script.getVolume() ;
+        //duration_text.text = "Duration: " + Mathf.Round(script.getDuration() * 10) / 10
+        //+ "\nVolume: " + script.getVolume() ;
+        // duration_text.text = "Duration: " + Mathf.Round(script.getDuration() / 0.46875f)
+        // + "\nVolume: " + script.getVolume() ;
+        duration_text.text = "h";
     }
 
     public void incrementDuration ()
     {
         duration = Mathf.Min(MAX_DURATION, duration + d_step_size);
-        duration_text.text = "Duration: " + Mathf.Round(duration * 10) / 10 + "\nVolume: " + Mathf.Round(volume * 100) / 100;
+        duration_text.text = "Duration: " + Mathf.Round(duration / 0.46875f) + "\nVolume: " + Mathf.Round(volume * 100) / 100;
         script.setDuration(duration);
     }
 
     public void decrementDuration()
     {
         duration = Mathf.Max(MIN_DURATION, duration - d_step_size);
-        duration_text.text = "Duration: " + Mathf.Round(duration * 10) / 10 + "\nVolume: " + Mathf.Round(volume * 100) / 100;
+        duration_text.text = "Duration: " + Mathf.Round(duration / 0.46875f) + "\nVolume: " + Mathf.Round(volume * 100) / 100;
         script.setDuration(duration);
+        Debug.Log(duration);
     }
 
     public void incrementVolume ()
     {
         volume = Mathf.Min(MAX_VOLUME, volume + v_step_size);
-        duration_text.text = "Duration: " + Mathf.Round(duration * 10) / 10 + "\nVolume: " + Mathf.Round(volume * 100) / 100;
+        duration_text.text = "Duration: " + Mathf.Round(duration / 0.46875f) + "\nVolume: " + Mathf.Round(volume * 100) / 100;
         script.setVolume(volume);
     }
 
     public void decrementVolume ()
     {
         volume = Mathf.Max(MIN_VOLUME, volume - v_step_size);
-        duration_text.text = "Duration: " + Mathf.Round(duration * 10) / 10 + "\nVolume: " + Mathf.Round(volume * 100) / 100;
+        duration_text.text = "Duration: " + Mathf.Round(duration / 0.46875f) + "\nVolume: " + Mathf.Round(volume * 100) / 100;
         script.setVolume(volume);
     }
 

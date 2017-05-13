@@ -9,12 +9,13 @@ public class OnCollisionSound : MonoBehaviour {
     private float duration;
     public bool collided;
     private float default_volume;
+    public GameObject ps;
 
     void Awake()
     {
         source = GetComponent<AudioSource>();
         sound = source.clip;
-        duration = sound.length;
+        duration = 1.875f;
         default_volume = 1;
     }
 
@@ -43,7 +44,10 @@ public class OnCollisionSound : MonoBehaviour {
     {
         if (coll.gameObject.tag == "NowBar") {
             collided = true;
+            source.Stop();
+            source.volume = default_volume;
             source.Play();
+            ps.SendMessage("Play");
             startTime = Time.time;
             GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(.794f, .794f, .794f, 1.0f));
         }
@@ -65,11 +69,13 @@ public class OnCollisionSound : MonoBehaviour {
     void Update () {
         if (Time.time - startTime >= duration && collided)
         {
+            ps.SendMessage("Stop");
             collided = false;
             source.Stop();
             source.volume = default_volume;
         }
-
+        // Do we actually need this?
+        /**
         if (duration > 4)
         {
             if (Time.time - startTime >= duration * 0.7f && collided)
@@ -87,7 +93,7 @@ public class OnCollisionSound : MonoBehaviour {
                 Debug.Log(duration);
                 source.volume = (duration - (Time.time - startTime)) * 0.8f;
             }
-        }
+        }**/
         
     }
 }

@@ -80,6 +80,7 @@
   <ItemGroup>
     <None Include="Assets\Materials\glow.shader" />
     <None Include="Assets\Materials\transparent.shader" />
+    <None Include="Assets\SkySphere_V1\Documentation\How to use.txt" />
     <None Include="Assets\SteamVR\Resources\SteamVR_AlphaOut.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_Blit.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_BlitFlip.shader" />

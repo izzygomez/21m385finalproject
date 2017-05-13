@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SteamVR_TrackedObject))]
+//[RequireComponent(typeof(SteamVR_TrackedObject))]
 
 public class InitDuplicate : MonoBehaviour {
 

@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SteamVR_TrackedObject))]
+//[RequireComponent(typeof(SteamVR_TrackedObject))]
 
 public class CollideWithRing : MonoBehaviour {
 
-    public GameObject snap;
-    bool snapped;
 
     void OnCollisionEnter(Collision coll)
     {
