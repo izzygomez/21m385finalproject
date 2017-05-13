@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//[RequireComponent(typeof(SteamVR_TrackedObject))]
+[RequireComponent(typeof(SteamVR_TrackedObject))]
 
 public class CollideWithRing : MonoBehaviour {
 
@@ -31,6 +31,7 @@ public class CollideWithRing : MonoBehaviour {
 
     void OnCollisionExit(Collision coll)
     {
+        startTime = Time.time; // HACK to make this cube not get destroyed when letting it go after 10s
         //Debug.Log("SoundObject unCollided with " + coll.gameObject.name);
         if (coll.gameObject.tag == "SoundRing" &&
             !this.GetComponent<InitDuplicate>().currentlyPickedUpByController)
@@ -47,9 +48,14 @@ public class CollideWithRing : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (hasParent && Time.time - startTime >= 10.0 && this.gameObject.transform.parent.gameObject.tag=="Ground")
+        if (hasParent && Time.time - startTime >= 5.0 && this.gameObject.transform.parent.gameObject.tag=="Ground")
         {
-            Destroy(gameObject);
+            this.GetComponent<BoxCollider>().enabled = false;
+            if (Time.time - startTime >= 12.0)
+            {
+                Debug.Log("rip");
+                Destroy(gameObject);
+            }
         } 
     }
 }

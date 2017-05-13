@@ -42,19 +42,14 @@ public class OnCollisionSound : MonoBehaviour {
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.gameObject.tag == "NowBar") {
-            collided = true;
-            source.Stop();
-            source.volume = default_volume;
-            source.Play();
-            ps.SendMessage("Play");
-            startTime = Time.time;
-            GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(.794f, .794f, .794f, 1.0f));
+        if (coll.gameObject.tag == "NowBar" || coll.gameObject.tag == "Controller") {
+            Play();
         }
     }
 
     void Play()
     {
+        collided = true;
         source.volume = default_volume;
         source.Play();
         ps.SendMessage("Play");
@@ -62,13 +57,6 @@ public class OnCollisionSound : MonoBehaviour {
         GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(.794f, .794f, .794f, 1.0f));
     }
  
-    void OnTriggerExit(Collider coll)
-    {
-        if (coll.gameObject.tag == "NowBar") {
-            GetComponent<Renderer>().material.SetColor ("_EmissionColor", new Color(.5f, .5f, .5f, .5f));
-        }
-
-    }
 
 	// Use this for initialization
 	void Start () {
@@ -81,6 +69,7 @@ public class OnCollisionSound : MonoBehaviour {
             ps.SendMessage("Stop");
             collided = false;
             source.Stop();
+            GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(.5f, .5f, .5f, .5f));
             source.volume = default_volume;
         }
         // Do we actually need this?

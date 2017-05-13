@@ -9,7 +9,7 @@ public class PickupParent : MonoBehaviour {
     private SteamVR_TrackedObject trackedObj;
     private SteamVR_Controller.Device device;
     bool holdingObject = false;
-    public GameObject ground;
+    public GameObject stationary_obj;
 
     void Awake()
     {
@@ -46,7 +46,7 @@ public class PickupParent : MonoBehaviour {
             this.holdingObject = false;
             coll.gameObject.GetComponent<InitDuplicate>().currentlyPickedUpByController = false;
             // Debug.Log("You have released Touch while colliding with " + coll.name);
-            coll.gameObject.transform.SetParent(ground.transform);
+            coll.gameObject.transform.SetParent(stationary_obj.transform);
             coll.attachedRigidbody.isKinematic = false;
         }
 
