@@ -48,7 +48,7 @@ public class SoundDuration : MonoBehaviour {
     public void incrementDuration ()
     {
         duration = Mathf.Min(MAX_DURATION*d_step_size, duration + d_step_size);
-        Debug.Log((int)(duration / d_step_size));
+        // Debug.Log((int)(duration / d_step_size));
         note_image.GetComponent<Image>().sprite = getNewSprite((int) (duration / d_step_size));
 
         script.setDuration(duration);
@@ -57,7 +57,7 @@ public class SoundDuration : MonoBehaviour {
     public void decrementDuration()
     {
         duration = Mathf.Max(MIN_DURATION*d_step_size, duration - d_step_size);
-        Debug.Log((int)(duration / d_step_size));
+        // Debug.Log((int)(duration / d_step_size));
         note_image.GetComponent<Image>().sprite = getNewSprite((int)(duration / d_step_size));
 
         script.setDuration(duration);

@@ -8,6 +8,7 @@ public class ToggleTrigger : MonoBehaviour {
     public GameObject ring8;
     public GameObject ring16;
     public string message;
+    public GameObject warp_drive;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,14 @@ public class ToggleTrigger : MonoBehaviour {
             ring4.GetComponent<RotatingRingNoAudio>().SendMessage(message);
             ring8.GetComponent<RotatingRing>().SendMessage(message);
             ring16.GetComponent<RotatingRingNoAudio>().SendMessage(message);
+            if (message == "toggleOn")
+            {
+                warp_drive.SetActive(true);
+            }
+            if (message == "toggleOff")
+            {
+                warp_drive.SetActive(false);
+            }
         }
     }
 }

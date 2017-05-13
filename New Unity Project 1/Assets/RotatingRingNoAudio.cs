@@ -34,7 +34,6 @@ public class RotatingRingNoAudio : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
-        Debug.Log("snap");
         float? mindist = null;
         Transform minChild = this.transform;
 
