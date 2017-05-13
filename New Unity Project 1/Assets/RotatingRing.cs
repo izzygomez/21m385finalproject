@@ -7,6 +7,7 @@ public class RotatingRing : MonoBehaviour
 
     public bool spinning = false;
     bool snapped = false;
+    private bool playing = false;
 
     public AudioClip clarity_cut;
 
@@ -29,13 +30,21 @@ public class RotatingRing : MonoBehaviour
 
     void toggleOn() {
         spinning = true;
-        source.Play();
+        if (!playing)
+        {
+            playing = true;
+            source.Play();
+        }
     }
 
     void toggleOff()
     {
         spinning = false;
-        source.Pause();
+        if (playing)
+        {
+            playing = false;
+            source.Pause();
+        }
     }
 
     void OnCollisionEnter(Collision coll)
