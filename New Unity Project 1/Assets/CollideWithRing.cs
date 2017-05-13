@@ -22,7 +22,6 @@ public class CollideWithRing : MonoBehaviour {
         } else if (coll.gameObject.tag == "Ground" &&
          !this.GetComponent<InitDuplicate>().currentlyPickedUpByController)
         {
-            Debug.Log("HIT THE GROUND");
             startTime = Time.time;
             hasParent = true;
             this.gameObject.transform.SetParent(coll.gameObject.transform);

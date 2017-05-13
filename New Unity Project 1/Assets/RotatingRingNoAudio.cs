@@ -51,8 +51,9 @@ public class RotatingRingNoAudio : MonoBehaviour
                     }
                 }
             }
-            coll.gameObject.transform.position = new Vector3(minChild.position.x, minChild.position.y + .05f, minChild.position.z);
+            coll.gameObject.transform.position = new Vector3(minChild.position.x, minChild.position.y + .13f, minChild.position.z);
             coll.gameObject.transform.rotation = minChild.rotation;
+            coll.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             snapped = true;
             StartCoroutine(debounce());
         }

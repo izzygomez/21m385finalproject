@@ -24,7 +24,6 @@ public class PickupParent : MonoBehaviour {
         // Grabbing an object
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger) && coll.gameObject.tag == "SoundObject" && !this.holdingObject)
         {
-            // Debug.Log("grabbing");
             // Logic so that we only hold one object at a time
             this.holdingObject = true;
             coll.gameObject.GetComponent<InitDuplicate>().currentlyPickedUpByController = true;
@@ -34,6 +33,9 @@ public class PickupParent : MonoBehaviour {
             {
                 coll.gameObject.GetComponent<InitDuplicate>().Duplicate();
             }
+
+            // Logic to remove constraints (in case object was just on ring)
+            coll.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 
             coll.attachedRigidbody.isKinematic = true;
             coll.gameObject.transform.SetParent(this.gameObject.transform);
