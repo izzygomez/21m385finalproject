@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/AutoSave_mvp.unity
+- path: Assets/AutoSave_AutoSave_mvp.unity
   isLoaded: 1
   isActive: 1

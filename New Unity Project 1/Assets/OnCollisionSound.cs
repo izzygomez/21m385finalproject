@@ -52,6 +52,15 @@ public class OnCollisionSound : MonoBehaviour {
             GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(.794f, .794f, .794f, 1.0f));
         }
     }
+
+    void Play()
+    {
+        source.volume = default_volume;
+        source.Play();
+        ps.SendMessage("Play");
+        startTime = Time.time;
+        GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(.794f, .794f, .794f, 1.0f));
+    }
  
     void OnTriggerExit(Collider coll)
     {

@@ -86,6 +86,7 @@
     <Compile Include="Assets\InitDuplicate.cs" />
     <Compile Include="Assets\OnCollisionSound.cs" />
     <Compile Include="Assets\PickupParent.cs" />
+    <Compile Include="Assets\PlayOnHover.cs" />
     <Compile Include="Assets\RotatingRing.cs" />
     <Compile Include="Assets\RotatingRingNoAudio.cs" />
     <Compile Include="Assets\SkySphere_V1\Examples\Gui.cs" />
