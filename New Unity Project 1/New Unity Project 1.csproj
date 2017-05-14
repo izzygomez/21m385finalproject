@@ -81,6 +81,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BeatSound.cs" />
     <Compile Include="Assets\CollideWithRing.cs" />
     <Compile Include="Assets\CollisionRays.cs" />
     <Compile Include="Assets\InitDuplicate.cs" />

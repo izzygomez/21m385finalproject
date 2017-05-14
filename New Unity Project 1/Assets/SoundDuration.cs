@@ -36,6 +36,7 @@ public class SoundDuration : MonoBehaviour {
     private Image note_image;
     public OnCollisionSound script;
     public float hue;
+    public GameObject cube;
 
 	// Use this for initialization
 	void Start () {
@@ -69,10 +70,7 @@ public class SoundDuration : MonoBehaviour {
         // TODO change alpha
     
         Color new_color = Color.HSVToRGB(hue,volume*0.8f+.2f,1f);
-  
-    
-
-        this.gameObject.GetComponent<Renderer>().material.SetColor("_Color",new_color);
+       cube.GetComponent<Renderer>().material.SetColor("_Color",new_color);
         script.setVolume(volume);
     }
 
@@ -81,7 +79,7 @@ public class SoundDuration : MonoBehaviour {
 
         volume = Mathf.Max(MIN_VOLUME, volume - v_step_size);
         Color new_color = Color.HSVToRGB(hue, volume * 0.8f + .2f, 1f);
-        this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", new_color);
+        cube.GetComponent<Renderer>().material.SetColor("_Color", new_color);
         script.setVolume(volume);
     }
 

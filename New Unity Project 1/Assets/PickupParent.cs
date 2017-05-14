@@ -61,23 +61,27 @@ public class PickupParent : MonoBehaviour {
             // Check if volume is to be adjusted
             if (y > 0.7)
             {
-                coll.gameObject.GetComponent<SoundDuration>().incrementVolume();
+                //coll.gameObject.GetComponent<SoundDuration>().incrementVolume();
+                coll.gameObject.SendMessage("incrementVolume");
                 return;
             }
             if (y < -0.7)
             {
-                coll.gameObject.GetComponent<SoundDuration>().decrementVolume();
+                //coll.gameObject.GetComponent<SoundDuration>().decrementVolume();
+                coll.gameObject.SendMessage("decrementVolume");
                 return;
             }
 
             // Else, check if duration is to be adjusted
             if (x < 0)
             {
-                coll.gameObject.GetComponent<SoundDuration>().decrementDuration();
+                //coll.gameObject.GetComponent<SoundDuration>().decrementDuration();
+                coll.gameObject.SendMessage("decrementDuration");
             }
             if (x >= 0)
             {
-                coll.gameObject.GetComponent<SoundDuration>().incrementDuration();
+                //coll.gameObject.GetComponent<SoundDuration>().incrementDuration();
+                coll.gameObject.SendMessage("incrementDuration");
             }
         }
     }
