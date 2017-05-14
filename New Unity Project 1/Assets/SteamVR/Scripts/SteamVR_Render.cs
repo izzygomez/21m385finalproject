@@ -421,7 +421,7 @@ public class SteamVR_Render : MonoBehaviour
 		}
 
 		// If our FixedUpdate rate doesn't match our render framerate, then catch the handoff here.
-		// SteamVR_Utils.QueueEventOnRenderThread(SteamVR.Unity.k_nRenderEventID_PostPresentHandoff);
+		SteamVR_Utils.QueueEventOnRenderThread(SteamVR.Unity.k_nRenderEventID_PostPresentHandoff);
 #endif
 		// Force controller update in case no one else called this frame to ensure prevState gets updated.
 		SteamVR_Controller.Update();

@@ -17,6 +17,7 @@ public class BeatSound : MonoBehaviour {
     void Start()
     {
         volume = script.getVolume();
+        script.setDuration(0.46875f);
     }
 
 
