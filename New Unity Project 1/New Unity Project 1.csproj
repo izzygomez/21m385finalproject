@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BeatSound.cs" />
+    <Compile Include="Assets\ClaritySwitch.cs" />
     <Compile Include="Assets\CollideWithRing.cs" />
     <Compile Include="Assets\CollisionRays.cs" />
     <Compile Include="Assets\InitDuplicate.cs" />
@@ -158,7 +159,6 @@
     <Compile Include="Assets\VRBasics\Scripts\VRBasics_TouchAndPushManager.cs" />
     <Compile Include="Assets\VRBasics\Scripts\VRBasics_Touchable.cs" />
     <Compile Include="Assets\play_pause.cs" />
-    <Compile Include="Assets\switchscene.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\glow.shader" />
