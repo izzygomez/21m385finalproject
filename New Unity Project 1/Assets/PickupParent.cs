@@ -54,7 +54,7 @@ public class PickupParent : MonoBehaviour {
 
         // Changing volume & duration of object
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad) && coll.gameObject.tag == "SoundObject" && this.holdingObject) {
-            Debug.Log("Pressed down the touchpad. x = " + device.GetAxis().x + ", y = " + device.GetAxis().y);
+            // Debug.Log("Pressed down the touchpad. x = " + device.GetAxis().x + ", y = " + device.GetAxis().y);
             float x = device.GetAxis().x;
             float y = device.GetAxis().y;
 

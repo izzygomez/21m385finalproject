@@ -84,7 +84,7 @@ public class OnCollisionSound : MonoBehaviour {
             this.gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(0.4f, 0.4f, 0.4f));
             source.volume = default_volume;
         }
-        /**
+
         if (duration > 4)
         {
             if (Time.time - startTime >= duration * 0.7f && collided)
@@ -102,7 +102,7 @@ public class OnCollisionSound : MonoBehaviour {
                 // Debug.Log(duration);
                 source.volume = (duration - (Time.time - startTime)) * 0.8f;
             }
-        }**/
+        }
         
     }
 }
