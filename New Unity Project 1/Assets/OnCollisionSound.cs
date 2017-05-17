@@ -17,7 +17,7 @@ public class OnCollisionSound : MonoBehaviour {
     {
         source = GetComponent<AudioSource>();
         duration = 1.875f;
-        default_volume = .8f;
+        default_volume = .6f;
     }
 
     public float getDuration ()
